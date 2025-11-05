@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Resto App</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-indigo-50 min-h-screen flex flex-col">
+  <header class="bg-white shadow-lg p-4">
+    <h1 class="text-2xl font-bold text-center text-indigo-800">🍽️ Mini Resto</h1>
+  </header>
+
+ <main class="max-w-6xl mx-auto p-4 flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+  
+  <div class="space-y-6">
+
+    <div class="bg-white p-5 rounded-xl shadow-lg">
+      <h2 class="text-xl font-semibold mb-3 text-indigo-800">Tambah Menu 🍴</h2>
+      <form id="formMenu" class="space-y-3">
+        <input id="nama" class="border p-2 rounded w-full" placeholder="Nama Makanan" required>
+        <input id="harga" type="number" class="border p-2 rounded w-full" placeholder="Harga (Rp)" required>
+        <textarea id="deskripsi" class="border p-2 rounded w-full" placeholder="Deskripsi Makanan"></textarea>
+        <input id="foto" class="border p-2 rounded w-full" placeholder="URL Foto (opsional)">
+
+        <button class="bg-indigo-600 w-full text-white rounded p-2 hover:bg-indigo-700 transition">
+          Tambah Menu
+        </button>
+      </form>
+    </div>
+
+    <input id="searchMenu" class="w-full p-2 border rounded mb-2"
+      placeholder="🔍 Cari menu... contoh: ayam, sate" />
+
+    <div>
+      <h2 class="text-lg font-semibold mb-3 text-indigo-800">📋 Daftar Menu</h2>
+      <div id="menuList" class="grid gap-4"></div>
+    </div>
+
+  </div>
+  
+
+  <div class="bg-white p-5 rounded-xl shadow-lg h-fit sticky top-4">
+    <h2 class="text-lg font-semibold mb-3 text-indigo-800">🛒 Pesanan</h2>
+    
+    <ul id="orderList" class="divide-y"></ul>
+    <p id="totalHarga" class="font-bold mt-4 text-right text-indigo-900"></p>
+
+    <div class="mt-4 flex gap-2">
+      <input id="bayarInput" type="number" class="border p-2 rounded w-full"
+        placeholder="Masukkan uang pembayaran">
+      <button id="btnCheckout"
+        class="bg-indigo-600 text-white rounded px-4 hover:bg-indigo-700">
+        Checkout
+      </button>
+    </div>
+
+    <p id="kembalianText" class="font-semibold mt-2 text-green-600"></p>
+  </div>
+
+</main>
+
+
+  <footer class="bg-white shadow-lg p-3 text-center text-gray-500 text-sm">© 2025 Mini Resto</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

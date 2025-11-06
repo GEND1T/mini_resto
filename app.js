@@ -166,7 +166,32 @@ btnCheckout.addEventListener('click', () => {
   daftarPesanan = [];
   renderPesanan();
   bayarInput.value = "";
+  
 });
 
 renderMenu();
 renderPesanan();
+
+async function proses() {
+  try {
+    const hasil = await fetch ("https://api.phb-umkm.my.id/api/products");
+    const result = await hasil.json()
+    result.data.forEach((item) => {
+      const makanan = {
+        id : item.id,
+        nama : item.name,
+        harga : item.price,
+        deskripsi : item.description,
+        foto : item.image_url,
+      };
+
+      daftarMenu.push(makanan)
+    });
+
+    renderMenu();
+    } catch (err) {
+    menuList.innerHTML = '<p class = "text-red-700">Gagal su, internete mati koen..</p>'
+    }
+  }
+
+proses();
